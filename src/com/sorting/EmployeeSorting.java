@@ -1,0 +1,56 @@
+package com.sorting;
+
+import java.util.*;
+
+public class EmployeeSorting {
+
+    //find the highest salary Employee from each Dept
+    public void sortEmployee () {
+
+        List<Employee> list = new ArrayList<Employee>();
+        list.add(new Employee(1, "A", 10000));
+        list.add(new Employee(2, "A", 20000));
+        list.add(new Employee(3, "A", 15000));
+        list.add(new Employee(10, "A", 17000));
+
+        list.add(new Employee(4, "B", 30000));
+        list.add(new Employee(5, "B", 50000));
+        list.add(new Employee(6, "B", 40000));
+        list.add(new Employee(11, "B", 37000));
+
+        list.add(new Employee(7, "C", 70000));
+        list.add(new Employee(8, "C", 90000));
+        list.add(new Employee(9, "C", 80000));
+        list.add(new Employee(12, "C", 77000));
+
+        Map<String, ArrayList<Employee>> ml = new HashMap<String, ArrayList<Employee>>();
+        for (Employee emp : list) {
+            ArrayList<Employee> lemp;
+            if (ml.containsKey(emp.getDept())) {
+                lemp = ml.get(emp.getDept());
+            } else {
+                lemp = new ArrayList<Employee>();
+            }
+            lemp.add(emp);
+
+            Collections.sort(lemp, new Comparator<Employee>() {
+                public int compare(Employee e1, Employee e2) {
+                    return -(e1.getSalary() - e2.getSalary());
+                }
+            });
+            ml.put(emp.getDept(), lemp);
+        }
+
+        Set<Map.Entry<String, ArrayList<Employee>>> set = ml.entrySet();
+        for (Map.Entry<String, ArrayList<Employee>> s1 : set) {
+            List<Employee> elist = s1.getValue();
+            for (Employee e1 : elist) {
+                System.out.println();
+                System.out.println(e1.getId() + ":" + e1.getDept() + ":" + e1.getSalary());
+                break;
+            }
+        }
+
+    }
+
+}

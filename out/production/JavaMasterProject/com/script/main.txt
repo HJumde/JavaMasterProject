@@ -1,0 +1,57 @@
+
+
+   /*System.out.println("main method start execution");
+        ExampleoFJava8 obj1=new ExampleoFJava8();
+        obj1.ex_forEach();*/
+        // LamdaExpression le=new LamdaExpression();
+        //le.lamdaImpl();
+       //   JavaStreamApi jse=new JavaStreamApi();
+        // jse.exStream();
+
+/*
+
+    //Recuresion method implementation
+        InterQue cre=new InterQue();
+        int[] intArray=new int[]{1,2,3,4,5,6,7,8,9};
+
+        int sum=cre.colllectionRecursion(intArray, intArray.length);
+System.out.println("sum of collection as given below="+sum);
+System.out.println("-----------------------------------------------------------------");
+System.out.println("factoriala of 4="+cre.foctorialUsRecursion(4));
+System.out.println("-----------------------------------------------------------------");
+System.out.println("mulptilcation of all element of array="+cre.colllectionAddRecursion(intArray,intArray.length));
+    }
+*/
+/*
+        String[] strArr={"Barbara", "James", "Mary", "John","Patricia", "Robert", "Michael", "Linda" };
+        Arrays.sort(strArr,(a,b)->a.compareToIgnoreCase(b));
+for(String str:strArr){
+    System.out.println(str);
+}
+*/
+
+    /*Message msg=new Message();
+   Thread t1=new Thread1(msg);
+   Thread t2=new Thread1(msg);
+   t1.setName("T1");
+    t2.setName("T2");
+   Thread t3=new Thread2(msg);
+   t3.setName("T3");
+   t1.start();
+   t2.start();
+   t3.start();
+*/
+     /*   ArraySorting as=new ArraySorting();
+        as.arraySort();
+*/
+
+    /*    EmployeeSorting employeeSorting=new EmployeeSorting();
+        employeeSorting.sortEmployee();
+    */
+
+        JavaStream js=new JavaStream();
+
+
+
+
+System.out.print("values as given below="+js.findMaxwithMultipleOf7(new int[]{1,7,4,3,14,47,49,19,}));
