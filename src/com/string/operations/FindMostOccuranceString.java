@@ -1,5 +1,7 @@
 package com.string.operations;
 
+import com.sorting.Employee;
+
 import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,6 +24,12 @@ public class FindMostOccuranceString {
         Optional<Character> optionalCharacter = linkedHashSet.stream().reduce((a, b) -> map.get(b) > map.get(a) ? b : a);
         System.out.println("Most Occcurance charactor in String in Java=" + optionalCharacter.get());
     }
+
+    public void getMostOccuranceCharInStringUsingJava8(String str) {
+        char[] charArray = str.toLowerCase().toCharArray();
+    }
+
+
 }
 
 
