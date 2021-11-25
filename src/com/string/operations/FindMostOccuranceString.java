@@ -25,8 +25,24 @@ public class FindMostOccuranceString {
         System.out.println("Most Occcurance charactor in String in Java=" + optionalCharacter.get());
     }
 
-    public void getMostOccuranceCharInStringUsingJava8(String str) {
-        char[] charArray = str.toLowerCase().toCharArray();
+    public char getMostOccuranceCharInStringUsingJava8(String str) {
+
+        char[] list = str.toLowerCase().toCharArray();
+        Stream<Character> charStream = new String(list).chars().mapToObj(i->(char)i);
+        Map<Character,Long> map1=charStream.collect(groupingBy(x->x,counting()));
+        return map1.entrySet().stream().max(comparingByValue()).get().getKey();        
+
+
+    }
+
+    public char maximumOccuringChar(String str) {
+        return str.chars()
+                .mapToObj(x -> (char) x)                  // box to Character
+                .collect(groupingBy(x -> x, counting()))  // collect to Map<Character, Long>
+                .entrySet().stream()
+                .max(comparingByValue())                  // find entry with largest count
+                .get()                                    // or throw if source string is empty
+                .getKey();
     }
 
 
