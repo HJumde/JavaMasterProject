@@ -26,13 +26,13 @@ Collections.sort(list,new Comparator<Map.Entry<String,Integer>>(){
     }
 });
 
-        Collections.sort(list,new Comparator<Map.Entry<String,Integer>>(){
+       /* Collections.sort(list,new Comparator<Map.Entry<String,Integer>>(){
             @Override
             public int compare(Map.Entry<String, Integer> m1, Map.Entry<String, Integer> m2) {
                 return m1.getKey().compareTo(m2.getKey());
 
             }
-        });
+        });*/
 
 for(Map.Entry<String,Integer> entry:list) {
     System.out.println("name=" + entry.getKey() + "   " + "value=" + entry.getValue());

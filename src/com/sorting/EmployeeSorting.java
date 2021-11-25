@@ -75,7 +75,7 @@ public class EmployeeSorting {
         employeeList.add(new Employee(12, "C", 77000));
 
         Map < String, List < Employee >> byDept = employeeList.stream().collect(
-                Collectors.groupingBy(Employee:: getDept));
+                Collectors.groupingBy(x->x.getDept()));
 
         Set<Map.Entry<String, List<Employee>>> set = byDept.entrySet();
         for (Map.Entry<String, List<Employee>> s1 : set) {

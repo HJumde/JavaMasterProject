@@ -7,6 +7,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+
 public class FindMostOccuranceString {
 
     public void getMostOccuranceCharInString(String str) {
@@ -29,8 +33,8 @@ public class FindMostOccuranceString {
 
         char[] list = str.toLowerCase().toCharArray();
         Stream<Character> charStream = new String(list).chars().mapToObj(i->(char)i);
-        Map<Character,Long> map1=charStream.collect(groupingBy(x->x,counting()));
-        return map1.entrySet().stream().max(comparingByValue()).get().getKey();        
+        Map<Character,Long> map1=charStream.collect(Collectors.groupingBy(x->x,Collectors.counting()));
+        return map1.entrySet().stream().max(comparingByValue()).get().getKey();
 
 
     }
