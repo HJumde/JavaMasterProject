@@ -1,4 +1,4 @@
-package com.number_alog;
+package com.algorithms;
 
 import java.util.Arrays;
 
