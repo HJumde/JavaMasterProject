@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class EmployeeSorting {
 
     //find the highest salary Employee from each Dept
-    public void sortEmployee () {
+    public void sortEmployee() {
 
         List<Employee> list = new ArrayList<Employee>();
         list.add(new Employee(1, "A", 10000));
@@ -56,7 +56,7 @@ public class EmployeeSorting {
 
     //https://www.onlinetutorialspoint.com/java8/java-8-groupingby-example.html
 
-    public void sortEmployeeUsingJava8 () {
+    public void sortEmployeeUsingJava8() {
 
         List<Employee> employeeList = new ArrayList<Employee>();
         employeeList.add(new Employee(1, "A", 10000));
@@ -74,13 +74,20 @@ public class EmployeeSorting {
         employeeList.add(new Employee(9, "C", 80000));
         employeeList.add(new Employee(12, "C", 77000));
 
-        Map < String, List < Employee >> byDept = employeeList.stream().collect(
-                Collectors.groupingBy(x->x.getDept()));
+        Map<String, List<Employee>> byDept = employeeList.stream().collect(
+                Collectors.groupingBy(x -> x.getDept()));
 
-        Set<Map.Entry<String, List<Employee>>> set = byDept.entrySet();
+        Set<Map.Entry<String, List<Employee>>> set = byDept.entrySet().stream().map(m1 -> {
+            m1.setValue(m1.getValue().stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).collect(Collectors.toList()));
+                    return m1;
+                }
+        ).collect(Collectors.toSet());
+
+
         for (Map.Entry<String, List<Employee>> s1 : set) {
             List<Employee> elist = s1.getValue();
             for (Employee e1 : elist) {
+
                 System.out.println();
                 System.out.println(e1.getId() + ":" + e1.getDept() + ":" + e1.getSalary());
                 break;
