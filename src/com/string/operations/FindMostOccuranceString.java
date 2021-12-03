@@ -1,6 +1,5 @@
 package com.string.operations;
 
-import com.sorting.Employee;
 
 import java.sql.Array;
 import java.util.*;
@@ -27,26 +26,6 @@ public class FindMostOccuranceString {
         }
         Optional<Character> optionalCharacter = linkedHashSet.stream().reduce((a, b) -> map.get(b) > map.get(a) ? b : a);
         System.out.println("Most Occcurance charactor in String in Java=" + optionalCharacter.get());
-    }
-
-    public char getMostOccuranceCharInStringUsingJava8(String str) {
-
-        char[] list = str.toLowerCase().toCharArray();
-        Stream<Character> charStream = new String(list).chars().mapToObj(i->(char)i);
-        Map<Character,Long> map1=charStream.collect(Collectors.groupingBy(x->x,Collectors.counting()));
-        return map1.entrySet().stream().max(comparingByValue()).get().getKey();
-
-
-    }
-
-    public char maximumOccuringChar(String str) {
-        return str.chars()
-                .mapToObj(x -> (char) x)                  // box to Character
-                .collect(groupingBy(x -> x, counting()))  // collect to Map<Character, Long>
-                .entrySet().stream()
-                .max(comparingByValue())                  // find entry with largest count
-                .get()                                    // or throw if source string is empty
-                .getKey();
     }
 
 

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class SortedEmployeeDeptUsingSalary {
-    public void sortedEmployeeUsingSalary(){
+    public void sortedEmployeeUsingSalary() {
         List<Employee> list = new ArrayList<Employee>();
         list.add(new Employee(1, "A", 10000));
         list.add(new Employee(2, "A", 20000));
@@ -85,13 +85,8 @@ public class SortedEmployeeDeptUsingSalary {
 
 
         for (Map.Entry<String, List<Employee>> s1 : set) {
-            List<Employee> elist = s1.getValue();
-            for (Employee e1 : elist) {
-
-                System.out.println();
-                System.out.println(e1.getId() + ":" + e1.getDept() + ":" + e1.getSalary());
-                break;
-            }
+            Employee employee = s1.getValue().stream().findFirst().get();
+            System.out.println("Emp_ID:" + employee.getId() + "| Emp_Dept:" + employee.getDept() + "| Emp_Salary:" + employee.getSalary());
         }
 
     }
