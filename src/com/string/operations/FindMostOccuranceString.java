@@ -29,6 +29,11 @@ public class FindMostOccuranceString {
     }
 
 
+    //Find Most Occurance Elements from string as given below 
+    public int findMostOcuuranceElementOFList(List<Integer> integerList){
+    return integerList.stream().collect(Collectors.groupingBy(x->x,Collectors.counting())).entrySet().stream().sorted((Map.Entry.comparingByValue(Comparator.reverseOrder()))).map(Map.Entry::getKey).findFirst().get();
+    }
+
 }
 
 
