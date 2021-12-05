@@ -1,8 +1,9 @@
-package com.sorting;
+package com.disign.pattern;
 
 import java.io.Serializable;
 
-public class Singleton implements Cloneable, Serializable {
+public class
+Singleton implements Cloneable, Serializable {
     static Singleton singleton;
     private Singleton(){}
 

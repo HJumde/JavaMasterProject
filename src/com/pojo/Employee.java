@@ -1,4 +1,4 @@
-package com.sorting;
+package com.pojo;
 
 public class Employee {
     private int id;
@@ -32,6 +32,4 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-
-
 }

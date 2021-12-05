@@ -5,16 +5,14 @@ import com.pojo.Employee;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class EmployeeSorting {
-
-    //find the highest salary Employee from each Dept
-    public void sortEmployee() {
-
+public class SortedEmployeeDeptUsingSalary {
+    public void sortedEmployeeUsingSalary() {
         List<Employee> list = new ArrayList<Employee>();
         list.add(new Employee(1, "A", 10000));
         list.add(new Employee(2, "A", 20000));
         list.add(new Employee(3, "A", 15000));
         list.add(new Employee(10, "A", 17000));
+
 
         list.add(new Employee(4, "B", 30000));
         list.add(new Employee(5, "B", 50000));
@@ -87,47 +85,10 @@ public class EmployeeSorting {
 
 
         for (Map.Entry<String, List<Employee>> s1 : set) {
-            List<Employee> elist = s1.getValue();
-            for (Employee e1 : elist) {
-
-                System.out.println();
-                System.out.println(e1.getId() + ":" + e1.getDept() + ":" + e1.getSalary());
-                break;
-            }
+            Employee employee = s1.getValue().stream().findFirst().get();
+            System.out.println("Emp_ID:" + employee.getId() + "| Emp_Dept:" + employee.getDept() + "| Emp_Salary:" + employee.getSalary());
         }
 
     }
-
-    //find the second highest salary employee from list of employee object using java 8
-
-    public void readSecondHighestSalary() {
-        List<Employee> employeeList = new ArrayList<Employee>();
-        employeeList.add(new Employee(1, "A", 10000));
-        employeeList.add(new Employee(2, "A", 20000));
-        employeeList.add(new Employee(3, "A", 15000));
-        employeeList.add(new Employee(10, "A", 17000));
-
-        employeeList.add(new Employee(4, "B", 30000));
-        employeeList.add(new Employee(5, "B", 50000));
-        employeeList.add(new Employee(6, "B", 40000));
-        employeeList.add(new Employee(11, "B", 37000));
-
-        employeeList.add(new Employee(7, "C", 70000));
-        employeeList.add(new Employee(8, "C", 90000));
-        employeeList.add(new Employee(9, "C", 80000));
-        employeeList.add(new Employee(12, "C", 77000));
-
-        Optional<Employee> emp = employeeList.stream()
-                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst();
-        System.out.println(emp.get().getSalary());
-
-        // Find the Third Highest Salry of Employee
-        Optional<Employee> emp1 = employeeList.stream()
-                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(2).findFirst();
-        System.out.println(emp1.get().getSalary());
-        System.out.println("--------------------------salary of Employee I Sorted Order as given below-------------------------------------------------------");
-        employeeList.stream().map(x -> x.getSalary()).sorted(Collections.reverseOrder()).forEach(System.out::println);
-    }
-
 
 }

@@ -1,21 +1,23 @@
 package com.percipient;
 
+import com.algorithms.Assessment1;
+import com.javastream.FindDuplicateStringFromLIst;
 import com.javastream.JavaStream;
-import com.multithread.Thread2;
-import com.multithread.Message;
-import com.multithread.Thread1;
-import com.sorting.ArraySorting;
-import com.sorting.EmployeeSorting;
-import com.sorting.SubClass;
-import com.sorting.SupperClass;
+import com.sorting.*;
+import com.springer.nature.Assessment;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
+
     public static void main(String[] args) {
 
+
+        Assessment1 assessment1=new Assessment1();
+        assessment1.findTwoNuber();
     }
+
+
 
 }
